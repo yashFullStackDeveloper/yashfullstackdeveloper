@@ -1,226 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <title>Document</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            letter-spacing: 1px;
-        }
-        
-     
-
-        .atharv {
-            min-height: 120vh;
-            max-width: 130%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .my {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-
-        }
-
-        .calculator {
-            padding: 16px;
-            box-shadow: 0 0 25px rgb(255, 0, 0);
-            border: 2px solid rgb(202, 29, 29);
-            border-radius: 17px;
-            background-color: rgb(84, 255, 229);
-
-        }
-
-        .display {
-            width: 360px;
-            height: 90px;
-            padding: 20px;
-            border: none;
-            outline: none;
-            margin: 10px;
-            background: rgb(1, 1, 1);
-            color: black;
-            font-size: 50px;
-            font-weight: 200;
-            text-align: right;
-            cursor: pointer;
-            color: rgb(112, 36, 36);
-            border-radius: 10px;
-        }
-
-
-        button {
-            width: 70px;
-            height: 50px;
-            margin: 10px;
-            background: rgb(255, 255, 0);
-            color: black;
-            font-size: 32px;
-            font-weight: 600;
-            border: 2px solid rgb(255, 0, 0);
-      
-        }
-
-        button:active {
-            background: rgb(255, 0, 0);
-
-        }
-
-        .opr {
-            background-color: rgb(125, 21, 222);
-            font-weight: 700px;
-            color: white;
-        }
-
-        #ecc {
-            background: rgb(255, 0, 0);
-            font-weight: 900px;
-            color: white;
-        }
-    </style>
-    <script>
-        let total = 0;
-        let displayString = "";
-        let action = 0;
-
-
-        function numberType(passnumber) {
-            displayString = displayString + passnumber.toString();
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function add() {
-            total = Number(displayString);
-            action = 1;
-            displayString = "";
-
-
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function sub() {
-            total = Number(displayString);
-            action = 2;
-            displayString = "";
-
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function multiplication() {
-            total = Number(displayString);
-            action = 3;
-            displayString = "";
-
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function div() {
-            total = Number(displayString);
-            action = 4;
-            displayString = "";
-
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function percentage() {
-            total = Number(displayString);
-            action = 5;
-            displayString = "";
-
-            document.getElementById("display").innerHTML = displayString;
-        }
-        function showResult() {
-
-            if (action == 1) {
-                total = total + Number(displayString);
-            } else if (action == 2) {
-                total = total - Number(displayString);
-            } else if (action == 3) {
-                total = total * Number(displayString);
-            } else if (action == 4) {
-                total = total / Number(displayString);
-            } else if (action == 5) {
-                total = total % Number(displayString)
-            }
-
-
-
-            displayString = total;
-            document.getElementById("display").innerHTML = displayString;
-        }
-
-        function clearFunction() {
-            total = 0;
-            displayString = "";
-            document.getElementById("display").innerHTML = ""
-        }
-        function Backspace() {
-            displayString = displayString.substring(0, displayString.length - 1)
-            document.getElementById("display").innerHTML = displayString
-
-
-        }
-
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .calculator {
+        width: 350px;
+        margin: 0 auto;
+        border: 1px solid #ff0000;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #000000;
+        height: 100px;
+    }
+    input[type="button"] {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 20px;
+    }
+    input[type="text"] {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 10px;
+        font-size: 24px;
+        text-align: right;
+    }
+</style>
 </head>
+<body>
 
+<div class="calculator">
+    <input type="text" id="display" readonly>
+    <input type="button" value="7" onclick="appendToDisplay('7')">
+    <input type="button" value="8" onclick="appendToDisplay('8')">
+    <input type="button" value="9" onclick="appendToDisplay('9')">
+    <input type="button" value="/" onclick="appendToDisplay('/')">
+    <br>
+    <input type="button" value="4" onclick="appendToDisplay('4')">
+    <input type="button" value="5" onclick="appendToDisplay('5')">
+    <input type="button" value="6" onclick="appendToDisplay('6')">
+    <input type="button" value="*" onclick="appendToDisplay('*')">
+    <br>
+    <input type="button" value="1" onclick="appendToDisplay('1')">
+    <input type="button" value="2" onclick="appendToDisplay('2')">
+    <input type="button" value="3" onclick="appendToDisplay('3')">
+    <input type="button" value="-" onclick="appendToDisplay('-')">
+    <br>
+    <input type="button" value="0" onclick="appendToDisplay('0')">
+    <input type="button" value="." onclick="appendToDisplay('.')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="+" onclick="appendToDisplay('+')">
+    <br>
+    <input type="button" value="C" onclick="clearDisplay()">
+</div>
 
-<body class="my">
-    <div class="atharv">
+<script>
+    function appendToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
 
+    function calculate() {
+        try {
+            var result = eval(document.getElementById('display').value);
+            document.getElementById('display').value = result;
+        } catch (error) {
+            document.getElementById('display').value = 'Error';
+        }
+    }
 
-        <div class="calculator">
-            <div class="display">
-                <h1 type="text" id="display" value="" style="font-size: smaller;">
-            </div>
-            <!--  -->
-            <div class="row">
-                <button id="Ac" type="button" class="opr" onclick="clearFunction()" style="font-size: 30px;color: red;">AC</button>
-                <button id="Del" type="button" class="opr" onclick="Backspace()" style="font-size: 30px;">DEL</button>
-                <button id="%" type="button" class="opr" onclick="percentage()">%</button>
-                <button id="/" type="button" class="opr" onclick="div()">÷</button>
-            </div>
-            <!--  -->
-            <div class="row">
-                <button id="7" type="button" onclick="numberType(7)">7</button>
-                <button type="button" onclick="numberType(8)">8</button>
-                <button type="button" onclick="numberType(9)">9</button>
-                <button type="button" class="opr" onclick="multiplication()">x</button>
-            </div>
-            <!--  -->
-            <div class="row">
-                <button type="button" onclick="numberType(4)">4</button>
-                <button type="button" onclick="numberType(5)">5</button>
-                <button type="button" onclick="numberType(6)">6</button>
-                <button type="button" class="opr" onclick="add()">+</button>
-            </div>
-            <!--  -->
-            <div class="row">
-                <button type="button" onclick="numberType(1)">1</button>
-                <button type="button" onclick="numberType(2)">2</button>
-                <button type="button" onclick="numberType(3)">3</button>
-                <button type="button" class="opr" onclick="sub()">-</button>
-            </div>
-            <!--  -->
-            <div class="row">
-                <button id="=/-" type="button" id="fff" onclick="numberType()">+/- </button>
-                <button type="button" id="fff" onclick="numberType(0)">0</button>
-                <button type="button" id="fff" onclick="">.</button>
-                <button id="=" type="button" id="ecc" onclick="showResult()">=</button>
-            </div>
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+</script>
 
-
-
-
-
-        </div>
-    </div>
 </body>
-</body>
-
 </html>

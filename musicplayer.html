@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Music Player</title>
+    <style>
+        /* Style for the player */
+        #player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        audio {
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 500px;
+            padding: 50px;
+            background-color: #fbccfe;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 350px;
+            margin-top: 200px;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="player">
+            <audio id="audio" controls>
+                <source src="/Users/enjoy_13_c/Downloads/keys-of-moon-under-the-sun(chosic.com).mp3" type="audio/mpeg">
+                <source src="/Users/enjoy_13_c/Downloads/Hope-Emotional-Soundtrack(chosic.com).mp3" >
+                <source src="" type="audio/mpeg">
+                <source src="" type="audio/mpeg">
+
+        </audio>
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="next">Next</button>
+            <button id="back">Back</button>
+        </div>
+
+        <script>
+            // JavaScript for controlling the player
+            const audio = document.getElementById('audio');
+            const playBtn = document.getElementById('play');
+            const pauseBtn = document.getElementById('pause');
+            const nextBtn = document.getElementById('next');
+            const backBtn = document.getElementById('back');
+
+            playBtn.addEventListener('click', play);
+            pauseBtn.addEventListener('click', pause);
+            nextBtn.addEventListener('click', next);
+            backBtn.addEventListener('click', back);
+
+            function play() {
+                audio.play();
+            }
+
+            function pause() {
+                audio.pause();
+            }
+
+            function next() {
+                // Add logic to play next song
+                alert('Playing next song');
+            }
+
+            function back() {
+                // Add logic to play previous song
+                alert('Playing previous song');
+            }
+        </script>
+    </div>
+</body>
+
+</html>

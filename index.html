@@ -3,117 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
+  <title>Awesome Homepage</title>
   <style>
+    /* Resetting default margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       text-align: center;
     }
-    .board {
-      display: inline-block;
-      border-collapse: collapse;
-      margin-top: 200px;
-      padding: 40px;
-    }
-    .board td {
-      width: 100px;
-      height: 100px;
-      border: 4px solid #f70000;
-      font-size: 48px;
-      cursor: pointer;
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 100px;
+      color: #333;
     }
 
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #FF5733;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #FF8C66;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    /* Additional styling for illustration */
+    .illustration {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+    }
   </style>
 </head>
-<body style="background-color: rgb(116, 255, 192);">
-<h1>O X O  GAME...</h1>
-<table class="board" cellspacing="0">
-  <tr>
-    <td onclick="handleClick(0, 0)"></td>
-    <td onclick="handleClick(0, 1)"></td>
-    <td onclick="handleClick(0, 2)"></td>
-  </tr>
-  <tr>
-    <td onclick="handleClick(1, 0)"></td>
-    <td onclick="handleClick(1, 1)"></td>
-    <td onclick="handleClick(1, 2)"></td>
-  </tr>
-  <tr>
-    <td onclick="handleClick(2, 0)"></td>
-    <td onclick="handleClick(2, 1)"></td>
-    <td onclick="handleClick(2, 2)"></td>
-  </tr>
-</table>
-
-<p id="message"></p>
-
-<script>
-  let currentPlayer = 'X';
-  let board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-  ];
-
-  function checkWinner() {
-    //  rows
-    for (let i = 0; i < 3; i++) {
-      if (board[i][0] !== '' && board[i][0] === board[i][1] && board[i][0] === board[i][2]) {
-        return board[i][0];
-      }
-    }
-
-    //  columns
-    for (let j = 0; j < 3; j++) {
-      if (board[0][j] !== '' && board[0][j] === board[1][j] && board[0][j] === board[2][j]) {
-        return board[0][j];
-      }
-    }
-
-    //  diagonals
-    if (board[0][0] !== '' && board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
-      return board[0][0];
-    }
-    if (board[0][2] !== '' && board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
-      return board[0][2];
-    }
-
-    //  to draw
-    if (!board.flat().includes('')) {
-      return 'draw';
-    }
-
-    return null;
-  }
-
-  function handleClick(row, col) {
-    if (board[row][col] === '' && !checkWinner()) {
-      board[row][col] = currentPlayer;
-      document.getElementById('message').innerText = '';
-
-      renderBoard();
-
-      const winner = checkWinner();
-      if (winner) {
-        if (winner === 'draw') {
-          document.getElementById('message').innerText = 'It\'s a draw!';
-        } else {
-          document.getElementById('message').innerText = `Player ${winner} wins!`;
-        }
-      } else {
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-      }
-    }
-  }
-
-  function renderBoard() {
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {
-        document.querySelector(`.board tr:nth-child(${i + 1}) td:nth-child(${j + 1})`).innerText = board[i][j];
-      }
-    }
-  }
-</script>
-
+<body>
+  <div class="container">
+    <h1 class="animated">Welcome to my home PAGE</h1>
+    <p class="animated"></p>
+    <a href="./backpage.html" class="cta-button animated">Get Started</a>
+    <img src="illustration.png" alt="Illustration" class="illustration animated">
+  </div>
 </body>
 </html>

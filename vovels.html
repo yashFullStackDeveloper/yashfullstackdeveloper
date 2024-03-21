@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Vowel Checker</title>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Vowel Checker</h2>
+    <label for="character">Enter a character:</label>
+    <input type="text" id="character" maxlength="1">
+    <button onclick="checkVowel()">Check</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    function isVowel(char) {
+      return ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase());
+    }
+
+    function checkVowel() {
+      var character = document.getElementById('character').value.trim();
+      var resultElement = document.getElementById('result');
+
+      if (character.length === 1 && /^[a-zA-Z]$/.test(character)) {
+        if (isVowel(character)) {
+          resultElement.textContent = character + ' is a vowel.';
+        } else {
+          resultElement.textContent = character + ' is not a vowel.';
+        }
+      } else {
+        resultElement.textContent = 'Please enter a single alphabetic character.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,41 +1,73 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>yash</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     
-         
-<head>
-
-<body >
-
-        <div>
-    <!-- left section -->
-    <!-- main div -->
-    <div style="display: inline-block;">
-
-        <!-- first box -->
-        <div style="background-color: aqua;height: 400px;width: 600px;">
-            <video src="./production_id_4120946 (2160p).mp4" controls height="400px" width="600px"></video>
-        </div>
-        <!-- second box -->
-        <div style="background-color: blueviolet;height: 200px;width: 600px"><video
-                src="./production_id_4120946 (2160p).mp4" controls height="200px" width="600px"></video></div>
+    header {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    
+    header h1 {
+      margin: 0;
+    }
+    
+    .container {
+      display: flex;
+    }
+    
+    .sidebar {
+      width: 20%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    .video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>YouTube</h1>
+  </header>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+      <!-- Sidebar content goes here -->
     </div>
-    <div style="display: inline-block;">
-        <!-- 1 box -->
-        <div style="background-color:blue;height:200px ;width: 240px;"><video src="./production_id_4120946 (2160p).mp4"
-                controls height="200px" width="240px"></video></div>
-        <!-- 2 box -->
-        <div style="background-color:blue;height:200px ;width: 240px;"><video src="./production_id_4120946 (2160p).mp4"
-        controls height="200px" width="240px"></video></div>
-        </div>
-        <!-- 3 box -->
-        <div style="background-color:rgb(246, 0, 0);height:200px ;width: 240px;"><video src="./production_id_4120946 (2160p).mp4" controls height="200px"
-                width="240px"></video></div>
+    <div class="content">
+      <h2>Main Content</h2>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <!-- Additional content goes here -->
     </div>
-
+  </div>
 </body>
-
 </html>
